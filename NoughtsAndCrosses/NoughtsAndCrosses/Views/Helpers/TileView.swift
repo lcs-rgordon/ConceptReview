@@ -35,16 +35,23 @@ struct TileView: View {
             .contentShape(Rectangle())
             // Taps on view uses the tile
             .onTapGesture {
-                
-                // Make this tile show the symbol for the current player
-                state = player
-                
-                // Advance to next turn
-                turn += 1
-                
+                handleUserAction()
             }
     }
+
+    // MARK: Functions
     
+    /// Called by a tap on the view; marks the tile with the current player's symbol and advances to the next turn in the game.
+    /// - Tag: user_action
+    func handleUserAction() {
+
+        // Make this tile show the symbol for the current player
+        state = player
+        
+        // Advance to next turn
+        turn += 1
+        
+    }
 }
 
 struct TileView_Previews: PreviewProvider {
