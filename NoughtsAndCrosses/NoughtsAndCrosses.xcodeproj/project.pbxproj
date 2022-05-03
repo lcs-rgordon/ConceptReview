@@ -12,6 +12,7 @@
 		81DDFED4282130EA008DED99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81DDFED3282130EA008DED99 /* Preview Assets.xcassets */; };
 		81DDFEDC2821344A008DED99 /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFEDB2821344A008DED99 /* GameBoardView.swift */; };
 		81DDFEE3282139E9008DED99 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFEE2282139E9008DED99 /* SharedConstants.swift */; };
+		81DDFEE728213ADC008DED99 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFEE628213ADC008DED99 /* TileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		81DDFED3282130EA008DED99 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		81DDFEDB2821344A008DED99 /* GameBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardView.swift; sourceTree = "<group>"; };
 		81DDFEE2282139E9008DED99 /* SharedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
+		81DDFEE628213ADC008DED99 /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		81DDFEDA2821343B008DED99 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				81DDFEE428213AC0008DED99 /* Helpers */,
 				81DDFEE1282139BD008DED99 /* Model */,
 				81DDFEDB2821344A008DED99 /* GameBoardView.swift */,
 			);
@@ -84,6 +87,14 @@
 				81DDFEE2282139E9008DED99 /* SharedConstants.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		81DDFEE428213AC0008DED99 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				81DDFEE628213ADC008DED99 /* TileView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 			files = (
 				81DDFECD282130E9008DED99 /* NoughtsAndCrossesApp.swift in Sources */,
 				81DDFEE3282139E9008DED99 /* SharedConstants.swift in Sources */,
+				81DDFEE728213ADC008DED99 /* TileView.swift in Sources */,
 				81DDFEDC2821344A008DED99 /* GameBoardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
