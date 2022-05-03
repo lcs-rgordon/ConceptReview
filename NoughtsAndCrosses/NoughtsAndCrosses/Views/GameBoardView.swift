@@ -32,6 +32,9 @@ struct GameBoardView: View {
     // Tracks what turn it is (nine total are possible)
     @State var currentTurn = 1
     
+    // Tracks whether game is won or not
+    @State var gameWon = false
+    
     // MARK: Computed properties
     var body: some View {
         
@@ -39,8 +42,14 @@ struct GameBoardView: View {
             
             Spacer()
             
-            Text("Current turn is: \(currentTurn)")
-            
+            Text("Current player is: \(currentPlayer)")
+                // Only show when game is not over
+                .opacity(gameWon == false ? 1.0 : 0.0)
+
+            Text("\(currentPlayer) wins!")
+                // Only show when game IS over
+                .opacity(gameWon == true ? 1.0 : 0.0)
+
             Spacer()
             
             // Top row
@@ -57,7 +66,7 @@ struct GameBoardView: View {
                          player: currentPlayer,
                          turn: $currentTurn)
             }
-
+            
             // Middle row
             HStack {
                 TileView(state: $middleLeft,
@@ -70,7 +79,7 @@ struct GameBoardView: View {
                          player: currentPlayer,
                          turn: $currentTurn)
             }
-
+            
             // Bottom row
             HStack {
                 TileView(state: $bottomLeft,
@@ -86,7 +95,7 @@ struct GameBoardView: View {
             
             Spacer()
             
-            Text("Current player is: \(currentPlayer)")
+            Text("Current turn is: \(currentTurn)")
             
             Spacer()
             
@@ -94,16 +103,72 @@ struct GameBoardView: View {
         .onChange(of: currentTurn) { newValue in
             
             print("It's now turn \(newValue)...")
+
+            // Did somebody win?
+            checkForWin()
             
-            // Change the current player
-            if currentPlayer == nought {
-                currentPlayer = cross
-            } else {
-                currentPlayer = nought
+        }
+        
+    }
+    
+    // MARK: Functions
+    func checkForWin() {
+        
+        // Only check for win if more than four turns have occured
+        if currentTurn > 4 {
+            
+            // Now check each location
+            if
+                upperLeft == currentPlayer &&           // Upper row
+                upperMiddle == currentPlayer &&
+                upperRight == currentPlayer ||
+                    
+                middleLeft == currentPlayer &&          // Middle row
+                middleMiddle == currentPlayer &&
+                middleRight == currentPlayer ||
+                
+                bottomLeft == currentPlayer &&          // Bottom row
+                bottomMiddle == currentPlayer &&
+                bottomRight == currentPlayer ||
+                
+                upperLeft == currentPlayer &&           // Left column
+                middleLeft == currentPlayer &&
+                bottomLeft == currentPlayer ||
+                
+                upperMiddle == currentPlayer &&         // Middle column
+                middleMiddle == currentPlayer &&
+                bottomMiddle == currentPlayer ||
+                
+                upperRight == currentPlayer &&          // Right column
+                middleRight == currentPlayer &&
+                bottomRight == currentPlayer ||
+                
+                upperLeft == currentPlayer &&           // Diagonal, left to right
+                middleMiddle == currentPlayer &&
+                bottomRight == currentPlayer ||
+                
+                upperRight == currentPlayer &&          // Diagonal, right to left
+                middleMiddle == currentPlayer &&
+                bottomLeft == currentPlayer
+            {
+                
+                gameWon = true
+                print("Game won by \(currentPlayer)...")
+                
+                // End function now
+                return
+                
             }
             
         }
         
+        // No player won, so change to other player
+        if currentPlayer == nought {
+            currentPlayer = cross
+        } else {
+            currentPlayer = nought
+        }
+
     }
 }
 
