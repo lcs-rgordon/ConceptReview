@@ -17,6 +17,13 @@ struct TileView: View {
     // sent there to be saved.
     @Binding var state: String
     
+    // Which player tapped this tile?
+    let player: String
+    
+    // Connect to property on calling view.
+    // Allows turn to be advanced.
+    @Binding var turn: Int
+    
     // MARK: Computed property
     var body: some View {
         Text(state)
@@ -29,8 +36,12 @@ struct TileView: View {
             // Taps on view uses the tile
             .onTapGesture {
                 
-                // Temporarily make this a nought
-                state = nought
+                // Make this tile show the symbol for the current player
+                state = player
+                
+                // Advance to next turn
+                turn += 1
+                
             }
     }
     
@@ -38,8 +49,14 @@ struct TileView: View {
 
 struct TileView_Previews: PreviewProvider {
     static var previews: some View {
-        TileView(state: .constant(empty))
-        TileView(state: .constant(nought))
-        TileView(state: .constant(cross))
+        TileView(state: .constant(empty),
+                 player: nought,
+                 turn: .constant(1))
+        TileView(state: .constant(nought),
+                 player: nought,
+                 turn: .constant(1))
+        TileView(state: .constant(cross),
+                 player: nought,
+                 turn: .constant(1))
     }
 }
