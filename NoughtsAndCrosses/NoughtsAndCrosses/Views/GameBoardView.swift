@@ -133,6 +133,8 @@ struct GameBoardView: View {
     ///
     /// Looks for all nine win conditions, so long as four turns have occured.
     /// Changes the current player.
+    ///
+    /// - Tag: winning_condition
     func checkForWin() {
         
         // Only check for win if more than four turns have occured

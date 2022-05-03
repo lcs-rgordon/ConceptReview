@@ -10,7 +10,7 @@ Be sure to review the `README` files within each project for a guided summary.
 
 *Noughts and Crosses*, also known as "x's and o's", generates data entirely from user actions that trigger events.
 
-When a winning condition is detected – three of the same sign in a row, column, or diagonal – the game is won. If nine turns occur and neither player's moves triggers a winning condition, a draw is obtained.
+When a [winning condition is detected](x-source-tag://winning_condition) – three of the same sign in a row, column, or diagonal – the game is won. If nine turns occur and neither player's moves triggers a winning condition, a draw is obtained.
 
 Abstraction is used through the `TileView` structure – this helps to manage complexity as the same code would otherwise be completely repeated nine times within `GameBoardView`.
 
