@@ -41,7 +41,8 @@ struct GameBoardView: View {
         VStack {
             
             Spacer()
-            
+
+            // Current player or who won
             Text("Current player is: \(currentPlayer)")
                 // Only show when game is not over
                 .opacity(gameWon == false ? 1.0 : 0.0)
@@ -94,15 +95,30 @@ struct GameBoardView: View {
             }
             
             Spacer()
-            
-            Text("Current turn is: \(currentTurn)")
+
+            // Current turn or new game
+            Group {
+                
+                Text("Current turn is: \(currentTurn)")
+                    // Only show when game is not over
+                    .opacity(gameWon == false ? 1.0 : 0.0)
+                
+                Button(action: {
+                    resetGame()
+                }, label: {
+                    Text("New Game")
+                })
+                // Only show when game IS over
+                .opacity(gameWon == true ? 1.0 : 0.0)
+                
+            }
             
             Spacer()
             
         }
         .onChange(of: currentTurn) { newValue in
             
-            print("It's now turn \(newValue)...")
+            print("It's now turn \(newValue), current player is \(currentPlayer)...")
 
             // Did somebody win?
             checkForWin()
@@ -112,6 +128,11 @@ struct GameBoardView: View {
     }
     
     // MARK: Functions
+    
+    /// checkForWin
+    ///
+    /// Looks for all nine win conditions, so long as four turns have occured.
+    /// Changes the current player.
     func checkForWin() {
         
         // Only check for win if more than four turns have occured
@@ -169,6 +190,28 @@ struct GameBoardView: View {
             currentPlayer = nought
         }
 
+    }
+    
+    func resetGame() {
+        // Clear game board
+        upperLeft = empty
+        upperMiddle = empty
+        upperRight = empty
+        middleLeft = empty
+        middleMiddle = empty
+        middleRight = empty
+        bottomLeft = empty
+        bottomMiddle = empty
+        bottomRight = empty
+        
+        // New game, has not been won
+        gameWon = false
+        
+        // Start at first turn
+        currentTurn = 1
+        
+        // Noughts goes first
+        currentPlayer = nought
     }
 }
 
