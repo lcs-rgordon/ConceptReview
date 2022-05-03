@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// - Tag: tile_view
 struct TileView: View {
     
     // MARK: Stored properties
