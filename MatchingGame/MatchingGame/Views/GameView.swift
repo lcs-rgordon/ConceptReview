@@ -44,29 +44,38 @@ struct GameView: View {
         }
         // This runs as soon as the app opens
         .task {
-            // Get list of items that could be matched from the app bundle
-            let url = Bundle.main.url(forResource: "items-to-match-with", withExtension: "json")!
-            
-            // Load the contents of the JSON file
-            let data = try! Data(contentsOf: url)
-            
-            // DEBUG: What data was pulled from that file?
-            print("Data loaded from JSON file in app bundle had this data...")
-            print("===")
-            print(String(data: data, encoding: .utf8)!)
-            
-            // Convert each JSON object into instances of the structure in the list
-            possibleItems = try! JSONDecoder().decode([ItemToMatch].self, from: data)
-            
-            // DEBUG: How many items are there in the list now?
-            print(dump(possibleItems))
-            
-            // Pick a random item to show, or if that doesn't work, show the test item
-            currentItem = possibleItems.randomElement() ?? testItem
+            loadItemData()
         }
         
     }
+
+    // MARK: Functions
     
+    /// Loads data about items to be matched from a JSON file in the app bundle.
+    /// - Tag: mg_input_from_file
+    func loadItemData() {
+        
+        // Get list of items that could be matched from the app bundle
+        let url = Bundle.main.url(forResource: "items-to-match-with", withExtension: "json")!
+        
+        // Load the contents of the JSON file
+        let data = try! Data(contentsOf: url)
+        
+        // DEBUG: What data was pulled from that file?
+        print("Data loaded from JSON file in app bundle had this data...")
+        print("===")
+        print(String(data: data, encoding: .utf8)!)
+        
+        // Convert each JSON object into instances of the structure in the list
+        possibleItems = try! JSONDecoder().decode([ItemToMatch].self, from: data)
+        
+        // DEBUG: How many items are there in the list now?
+        print(dump(possibleItems))
+        
+        // Pick a random item to show, or if that doesn't work, show the test item
+        currentItem = possibleItems.randomElement() ?? testItem
+
+    }
 }
 
 struct GameView_Previews: PreviewProvider {

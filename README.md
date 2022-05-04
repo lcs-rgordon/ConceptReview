@@ -79,3 +79,47 @@ When a game is completed, the [result is added to a list](x-source-tag://adding_
 
 ### Matching Game
 
+![image alt text](matching-game.png)
+
+*Matching Game* could not exist without input from files in the app bundle. A [JSON file provides items that are to be matched](x-source-tag://mg_input_from_file), and images are stored in the **Assets** folder.
+
+Input to this app also occurs through user actions – for example, when the user taps on an image.
+
+Sequence and selection statements are used to determine whether the user [selected the correct response](x-source-tag://mg_answer_correct).
+
+* Callout(Bug Hunt):
+  Develop your logical error detective skills. 🔎 
+  
+  There is at least one problem with the logic of this app.
+  
+  Play some games, tap around, and see what you notice.
+  
+  Once you find the problem, fix it!
+  
+  Then [on Spaces](https://ca.spacesedu.com/), identify the problem you found, and share your solution, in your private portfolio space.
+  
+−
+
+* Callout(Abstraction):
+  Manage complexity by reducing code duplication. 🛠 
+  
+  Review the `GameView` and `MatchPresentationView` structures in *Matching Game*.
+  
+  Do you see any repetitive code?
+  
+  If so, apply *abstraction*, and create a helper view that can be re-used.
+  
+  When you create your helper view, consider whether the values of any properties need to be sent back to a source of truth on the calling view.
+  
+  If so, mark those properties with `@Binding`. 
+
+−
+
+* Callout(Incomplete Features):
+  The user would probably like to know how successful they've been at matching words to images. 🤔 
+  
+  Review properties that exist on the `GameView` structure.
+  
+  How can you connect those properties to the `MatchPresentationView` structure, so that you can give the user feedback about how they are doing?
+  
+  Then create space in the user interface to display that data in some way.

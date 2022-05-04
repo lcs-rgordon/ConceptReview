@@ -29,6 +29,9 @@
       location = "container:"
       name = "SupportingImages">
       <FileRef
+         location = "group:matching-game.png">
+      </FileRef>
+      <FileRef
          location = "group:multiplication-maestro-something-missing.png">
       </FileRef>
       <FileRef

@@ -31,6 +31,7 @@ struct MatchPresentationView: View {
     @State var answerCorrect = false
     
     // MARK: Computed properties
+    /// - Tag: mg_answer_correct
     var body: some View {
         VStack {
             
