@@ -23,6 +23,28 @@ This helps to manage complexity as without these "helper" views the code for the
 
 As questions are answered, results are added to the list, with the most recent question at the top. The contents of the list are then available for review by the user. The *results* list manages complexity by allowing us to display an open-ended number of prior questions that the user has completed. We don't know how many questions a user will complete. It's not possible to predict how many individual variables would be needed. Instead, as each question is completed, we can simply create a new instance of the [`Result` structure](x-source-tag://mm_result_structure) and then [add that to the list](x-source-tag://mm_adding_to_list).
 
+* Callout(Bug Hunt):
+  A friend noticed that when a user has answered a question without providing a response (perhaps because they don't know the answer) that this looks a little odd in the history of prior questions. 🔎 
+  
+  Your friend suggested that it looks like something isn't working in the app in this case.
+  
+  How might you indicate, in the history of prior questions, that a blank response was provided by the user?
+  
+  Make the necessary code changes to correct for this.
+
+![image alt text](multiplication-maestro-something-missing.png)
+
+* Callout(User Experience Refinement):
+  You received a review for *Multiplication Maestro* on the App Store that mentioned the interface feels crowded on devices with smaller screen sizes. 🧐 
+  
+  To make your app work better on all devices, you decide to move the list of prior results to a separate tab.
+  
+  See if you can modify the code in *Multiplication Maestro* so that the interface looks the same as shown below. You'll need to move the *source of truth* for the list of prior results to the app level file, [`MultiplicationMaestroApp.swift`](x-source-tag://mm_app_level). Then pass that list to `ContentView.swift` which holds the primary quizzing interface, and to a new view that you will create to hold the history. 
+  
+  What *property wrapper* will you need to use on the two views that receive the list from the app level file, so that any changes to the list on those tabs are sent up to the source of truth?
+
+![image alt text](multiplication-maestro-tabs.png)
+
 ### Noughts and Crosses
 
 ![image alt text](noughts-and-crosses.png)

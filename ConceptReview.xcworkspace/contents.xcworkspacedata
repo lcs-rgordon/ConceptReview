@@ -22,6 +22,12 @@
       location = "container:"
       name = "SupportingImages">
       <FileRef
+         location = "group:multiplication-maestro-something-missing.png">
+      </FileRef>
+      <FileRef
+         location = "group:multiplication-maestro-tabs.png">
+      </FileRef>
+      <FileRef
          location = "group:multiplication-maestro.png">
       </FileRef>
       <FileRef
