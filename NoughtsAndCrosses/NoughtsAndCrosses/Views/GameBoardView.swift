@@ -35,6 +35,9 @@ struct GameBoardView: View {
     // Tracks whether game is won or not
     @State var gameWon = false
     
+    // Tracks the history of prior games played
+    @State var history: [GameResult] = []
+    
     // MARK: Computed properties
     var body: some View {
         
@@ -175,8 +178,12 @@ struct GameBoardView: View {
                 bottomLeft == currentPlayer
             {
                 
+                // Game has been won
                 gameWon = true
                 print("Game won by \(currentPlayer)...")
+                
+                // Save the result
+                saveResult()
                 
                 // End function now
                 return
@@ -192,6 +199,36 @@ struct GameBoardView: View {
             currentPlayer = nought
         }
 
+    }
+
+    /// Adds the result of a game to a list that tracks the history of prior games played.
+    /// - Tag: adding_to_list
+    func saveResult() {
+        
+        // Create an instance of the GameResult structure
+        let newResult = GameResult(outcome: gameWon == false ? "Draw" : currentPlayer,  // "⭘" or "✕" when
+                                                                                        // game was won...
+                                   
+                                   turnsTotal: currentTurn - 1,     // If game was won on turn 5,
+                                                                    // currentTurn would be 6 when
+                                                                    // win is detected
+
+                                   upperLeft: upperLeft,            // Rest of arguments are the state
+                                   upperMiddle: upperMiddle,        // of the game board...
+                                   upperRight: upperRight,
+                                   middleLeft: middleLeft,
+                                   middleMiddle: middleMiddle,
+                                   middleRight: middleRight,
+                                   bottomLeft: bottomLeft,
+                                   bottomMiddle: bottomMiddle,
+                                   bottomRight: bottomRight)
+        
+        // Actually add the result to the top of list of results
+        history.insert(newResult, at: 0)
+        
+        // DEBUG: Print the contents of the history list to the console
+        print(dump(history))
+        
     }
     
     func resetGame() {

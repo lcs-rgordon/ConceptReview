@@ -13,6 +13,7 @@
 		81DDFEDC2821344A008DED99 /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFEDB2821344A008DED99 /* GameBoardView.swift */; };
 		81DDFEE3282139E9008DED99 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFEE2282139E9008DED99 /* SharedConstants.swift */; };
 		81DDFEE728213ADC008DED99 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFEE628213ADC008DED99 /* TileView.swift */; };
+		81DDFF0C2821F9D9008DED99 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFF0B2821F9D9008DED99 /* GameResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		81DDFEDB2821344A008DED99 /* GameBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardView.swift; sourceTree = "<group>"; };
 		81DDFEE2282139E9008DED99 /* SharedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
 		81DDFEE628213ADC008DED99 /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		81DDFF0B2821F9D9008DED99 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				81DDFEE2282139E9008DED99 /* SharedConstants.swift */,
+				81DDFF0B2821F9D9008DED99 /* GameResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				81DDFEE3282139E9008DED99 /* SharedConstants.swift in Sources */,
 				81DDFEE728213ADC008DED99 /* TileView.swift in Sources */,
 				81DDFEDC2821344A008DED99 /* GameBoardView.swift in Sources */,
+				81DDFF0C2821F9D9008DED99 /* GameResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
