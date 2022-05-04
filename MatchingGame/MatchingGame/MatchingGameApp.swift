@@ -11,7 +11,7 @@ import SwiftUI
 struct MatchingGameApp: App {
     var body: some Scene {
         WindowGroup {
-            MatchingView()
+            GameView()
         }
     }
 }
