@@ -10,6 +10,9 @@
       <Group
          location = "container:"
          name = "FromFileInAppBundle">
+         <FileRef
+            location = "group:MatchingGame/MatchingGame.xcodeproj">
+         </FileRef>
       </Group>
       <Group
          location = "container:"
