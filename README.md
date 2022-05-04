@@ -16,3 +16,21 @@ Abstraction is used through the [`TileView` structure](x-source-tag://tile_view)
 
 When a game is completed, the [result is added to a list](x-source-tag://adding_to_list) that tracks the history of games played. This list is then displayed to the user in the History section of the user interface.
 
+* Callout(Bug Hunt):
+  Develop your logical error detective skills. 🔎 
+  
+  There are at least three problems with the logic of this app.
+  
+  Play some games, tap around, and try to do things that a user should not do. Break the game!
+  
+  Once you find the problems, fix them.
+  
+  Then [on Spaces](https://ca.spacesedu.com/), identify the problems you found, and share your solutions, in your private portfolio space.
+ 
+−
+
+* Callout(Animation Action):
+  Small animations add a lot of flair to an app. ✨ 
+  
+  When a tile is tapped and filled in with a player's symbol, make the tile rotate twice, quickly.
+  
