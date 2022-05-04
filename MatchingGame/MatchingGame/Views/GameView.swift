@@ -1,5 +1,5 @@
 //
-//  MatchingView.swift
+//  GameView.swift
 //  MatchingGame
 //
 //  Created by Russell Gordon on 2022-05-04.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MatchingView: View {
+struct GameView: View {
     
     // MARK: Stored properties
     
@@ -64,8 +64,8 @@ struct MatchingView: View {
     
 }
 
-struct MatchingView_Previews: PreviewProvider {
+struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        MatchingView()
+        GameView()
     }
 }
