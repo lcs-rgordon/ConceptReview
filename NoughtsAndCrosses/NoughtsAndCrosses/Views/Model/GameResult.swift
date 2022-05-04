@@ -39,3 +39,16 @@ struct GameResult: Identifiable {
     let bottomRight: String
 
 }
+
+// Test result for Xcode Previews use
+let testGameResult = GameResult(outcome: "⭘",
+                                turnsTotal: 5,
+                                upperLeft: "⭘",
+                                upperMiddle: "✕",
+                                upperRight: "✕",
+                                middleLeft: "",
+                                middleMiddle: "⭘",
+                                middleRight: "",
+                                bottomLeft: "",
+                                bottomMiddle: "",
+                                bottomRight: "⭘")

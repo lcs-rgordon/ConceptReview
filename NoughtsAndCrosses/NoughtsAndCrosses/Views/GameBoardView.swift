@@ -46,61 +46,68 @@ struct GameBoardView: View {
             Spacer()
 
             // Current player or who won
-            Text("Current player is: \(currentPlayer)")
+            ZStack {
+                
+                Text("Current player is: \(currentPlayer)")
                 // Only show when game is not over
-                .opacity(gameWon == false ? 1.0 : 0.0)
-
-            Text("\(currentPlayer) wins!")
+                    .opacity(gameWon == false ? 1.0 : 0.0)
+                
+                Text("\(currentPlayer) wins!")
                 // Only show when game IS over
-                .opacity(gameWon == true ? 1.0 : 0.0)
+                    .opacity(gameWon == true ? 1.0 : 0.0)
+            }
+            .padding(.vertical)
 
             Spacer()
-            
-            // Top row
-            HStack {
-                // Send connection to properties on this view
-                // to the helper view using a binding
-                TileView(state: $upperLeft,
-                         player: currentPlayer,
-                         turn: $currentTurn)
-                TileView(state: $upperMiddle,
-                         player: currentPlayer,
-                         turn: $currentTurn)
-                TileView(state: $upperRight,
-                         player: currentPlayer,
-                         turn: $currentTurn)
-            }
-            
-            // Middle row
-            HStack {
-                TileView(state: $middleLeft,
-                         player: currentPlayer,
-                         turn: $currentTurn)
-                TileView(state: $middleMiddle,
-                         player: currentPlayer,
-                         turn: $currentTurn)
-                TileView(state: $middleRight,
-                         player: currentPlayer,
-                         turn: $currentTurn)
-            }
-            
-            // Bottom row
-            HStack {
-                TileView(state: $bottomLeft,
-                         player: currentPlayer,
-                         turn: $currentTurn)
-                TileView(state: $bottomMiddle,
-                         player: currentPlayer,
-                         turn: $currentTurn)
-                TileView(state: $bottomRight,
-                         player: currentPlayer,
-                         turn: $currentTurn)
+
+            // The game board
+            Group {
+                // Top row
+                HStack {
+                    // Send connection to properties on this view
+                    // to the helper view using a binding
+                    TileView(state: $upperLeft,
+                             player: currentPlayer,
+                             turn: $currentTurn)
+                    TileView(state: $upperMiddle,
+                             player: currentPlayer,
+                             turn: $currentTurn)
+                    TileView(state: $upperRight,
+                             player: currentPlayer,
+                             turn: $currentTurn)
+                }
+                
+                // Middle row
+                HStack {
+                    TileView(state: $middleLeft,
+                             player: currentPlayer,
+                             turn: $currentTurn)
+                    TileView(state: $middleMiddle,
+                             player: currentPlayer,
+                             turn: $currentTurn)
+                    TileView(state: $middleRight,
+                             player: currentPlayer,
+                             turn: $currentTurn)
+                }
+                
+                // Bottom row
+                HStack {
+                    TileView(state: $bottomLeft,
+                             player: currentPlayer,
+                             turn: $currentTurn)
+                    TileView(state: $bottomMiddle,
+                             player: currentPlayer,
+                             turn: $currentTurn)
+                    TileView(state: $bottomRight,
+                             player: currentPlayer,
+                             turn: $currentTurn)
+                }
             }
             
             Spacer()
 
             // Current turn or new game
-            Group {
+            ZStack {
                 
                 Text("Current turn is: \(currentTurn)")
                     // Only show when game is not over
@@ -115,8 +122,22 @@ struct GameBoardView: View {
                 .opacity(gameWon == true ? 1.0 : 0.0)
                 
             }
+            .padding(.vertical)
             
             Spacer()
+            
+            HStack {
+                Text("History")
+                    .font(.title3)
+                    .bold()
+                Spacer()
+            }
+            .padding(.horizontal)
+            
+            // History of prior games played
+            List(history) { currentResult in
+                GameResultView(result: currentResult)
+            }
             
         }
         .onChange(of: currentTurn) { newValue in
@@ -206,8 +227,10 @@ struct GameBoardView: View {
     func saveResult() {
         
         // Create an instance of the GameResult structure
-        let newResult = GameResult(outcome: gameWon == false ? "Draw" : currentPlayer,  // "⭘" or "✕" when
-                                                                                        // game was won...
+        let newResult = GameResult(outcome: gameWon == false ? draw : currentPlayer,    // "Draw" when game
+                                                                                        // over but not won...
+                                                                                        //
+                                                                                        // "⭘" or "✕" otherwise
                                    
                                    turnsTotal: currentTurn - 1,     // If game was won on turn 5,
                                                                     // currentTurn would be 6 when

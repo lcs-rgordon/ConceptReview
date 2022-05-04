@@ -15,4 +15,11 @@
          </FileRef>
       </Group>
    </Group>
+   <Group
+      location = "container:"
+      name = "SupportingImages">
+      <FileRef
+         location = "group:noughts-and-crosses.png">
+      </FileRef>
+   </Group>
 </Workspace>
