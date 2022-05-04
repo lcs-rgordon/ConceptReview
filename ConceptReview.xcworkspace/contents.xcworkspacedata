@@ -9,6 +9,10 @@
       name = "InputModes">
       <Group
          location = "container:"
+         name = "FromFileInAppBundle">
+      </Group>
+      <Group
+         location = "container:"
          name = "UserAction">
          <FileRef
             location = "group:MultiplicationMaestro/MultiplicationMaestro.xcodeproj">
