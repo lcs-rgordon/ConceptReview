@@ -122,7 +122,7 @@ struct MatchPresentationView: View {
             .buttonStyle(.bordered)
             // Only show this button when an answer has been checked
             .opacity(answerChecked == true ? 1.0 : 0.0)
-            .padding()
+            .padding([.leading, .trailing, .bottom])
 
             // Result
             ZStack {
