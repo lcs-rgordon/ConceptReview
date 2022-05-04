@@ -39,7 +39,7 @@ struct GameView: View {
             }
         }
         .task {
-            // Set list of flavours to the default list from the app bundle
+            // Get list of items that could be matched from the app bundle
             let url = Bundle.main.url(forResource: "items-to-match-with", withExtension: "json")!
             
             // Load the contents of the JSON file
