@@ -18,8 +18,8 @@ struct MatchPresentationView: View {
     @State var lowerLeft: ItemToMatch = testItem
     @State var lowerRight: ItemToMatch = testItem
     
-    // Are the items to match hidden?
-    @State var itemsHidden = true
+    // Is the quiz interface hidden at first?
+    @State var quizInterfaceHidden = true
     
     // The correct item
     @State var correctItem: ItemToMatch = testItem
@@ -112,6 +112,18 @@ struct MatchPresentationView: View {
             }
             .padding(.vertical)
             
+            // Allow for movement to next question
+            Button(action: {
+                newQuestion()
+            }, label: {
+                Text("Next")
+                    .font(.title)
+            })
+            .buttonStyle(.bordered)
+            // Only show this button when an answer has been checked
+            .opacity(answerChecked == true ? 1.0 : 0.0)
+            .padding()
+
             // Result
             ZStack {
                 Image(systemName: "checkmark.circle")
@@ -139,36 +151,48 @@ struct MatchPresentationView: View {
             
         }
         .padding(.horizontal)
-        // Hide items at first
-        .opacity(itemsHidden == true ? 0.0 : 1.0)
+        // Hide quiz interface at first
+        .opacity(quizInterfaceHidden == true ? 0.0 : 1.0)
         // Runs as soon as this view is loaded
         .task {
             
-            // Randomly select four items to display
-            upperLeft = items.randomElement()!
-            upperRight = items.randomElement()!
-            lowerLeft = items.randomElement()!
-            lowerRight = items.randomElement()!
+            // Generate a new question
+            newQuestion()
             
-            // Now make one of these items the correct item
-            let someRandomValue = Int.random(in: 1...4)
-            switch someRandomValue {
-            case 1:
-                correctItem = upperLeft
-            case 2:
-                correctItem = upperRight
-            case 3:
-                correctItem = lowerLeft
-            case 4:
-                correctItem = lowerRight
-            default:
-                break
-            }
-            
-            // Show the items
-            itemsHidden = false
+            // Show quiz interface
+            quizInterfaceHidden = false
             
         }
+    }
+    
+    // MARK: Functions
+    func newQuestion() {
+        
+        // Reset flags for determining answer state
+        answerChecked = false
+        answerCorrect = false
+        
+        // Randomly select four items to display
+        upperLeft = items.randomElement()!
+        upperRight = items.randomElement()!
+        lowerLeft = items.randomElement()!
+        lowerRight = items.randomElement()!
+        
+        // Now make one of these items the correct item
+        let someRandomValue = Int.random(in: 1...4)
+        switch someRandomValue {
+        case 1:
+            correctItem = upperLeft
+        case 2:
+            correctItem = upperRight
+        case 3:
+            correctItem = lowerLeft
+        case 4:
+            correctItem = lowerRight
+        default:
+            break
+        }
+        
     }
 }
 
