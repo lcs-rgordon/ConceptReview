@@ -20,14 +20,18 @@ struct GameView: View {
     // Is a game on?
     @State var gameOn: Bool = false
     
+    // How many rounds have been played?
+    @State var roundsPlayed = 0
+    
+    // How many correct matches were made?
+    @State var correctMatches = 0
+    
     // MARK: Computed properties
     var body: some View {
         VStack {
             
             if gameOn {
-                Image(currentItem.image)
-                    .resizable()
-                    .scaledToFit()
+                MatchPresentationView(items: possibleItems)
             } else {
                 Button(action: {
                     gameOn.toggle()
@@ -38,6 +42,7 @@ struct GameView: View {
                 .buttonStyle(.bordered)
             }
         }
+        // This runs as soon as the app opens
         .task {
             // Get list of items that could be matched from the app bundle
             let url = Bundle.main.url(forResource: "items-to-match-with", withExtension: "json")!
