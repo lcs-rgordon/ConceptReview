@@ -15,3 +15,7 @@ struct ItemToMatch: Identifiable, Codable {
     var id: Int
 
 }
+
+let testItem = ItemToMatch(description: "cherry",
+                           image: "cherry",
+                           id: 31)

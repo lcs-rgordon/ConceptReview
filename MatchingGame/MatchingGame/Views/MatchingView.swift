@@ -14,11 +14,15 @@ struct MatchingView: View {
     // Stores the entire list of items we could make matches from
     @State var possibleItems: [ItemToMatch] = []
     
+    // Stores an image to show
+    @State var currentItem: ItemToMatch = testItem
+    
     // MARK: Computed properties
     var body: some View {
         VStack {
-            Text("This is where the matching interface will show.")
-            
+            Image(currentItem.image)
+                .resizable()
+                .scaledToFit()
         }
         .task {
             // Set list of flavours to the default list from the app bundle
@@ -37,6 +41,9 @@ struct MatchingView: View {
             
             // DEBUG: How many items are there in the list now?
             print(dump(possibleItems))
+            
+            // Pick a random item to show, or if that doesn't work, show the test item
+            currentItem = possibleItems.randomElement() ?? testItem
         }
         
     }
