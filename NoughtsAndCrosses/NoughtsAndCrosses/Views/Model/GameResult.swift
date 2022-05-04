@@ -8,6 +8,7 @@
 import Foundation
 
 /// Used to save the result of a completed game.
+/// - Tag: nac_game_result
 struct GameResult: Identifiable {
 
     // Allow each result to be uniquely identified

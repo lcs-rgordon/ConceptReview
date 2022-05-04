@@ -11,6 +11,9 @@
          location = "container:"
          name = "UserAction">
          <FileRef
+            location = "group:MultiplicationMaestro/MultiplicationMaestro.xcodeproj">
+         </FileRef>
+         <FileRef
             location = "group:NoughtsAndCrosses/NoughtsAndCrosses.xcodeproj">
          </FileRef>
       </Group>
@@ -18,6 +21,9 @@
    <Group
       location = "container:"
       name = "SupportingImages">
+      <FileRef
+         location = "group:multiplication-maestro.png">
+      </FileRef>
       <FileRef
          location = "group:noughts-and-crosses.png">
       </FileRef>
