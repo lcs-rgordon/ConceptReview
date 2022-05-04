@@ -17,12 +17,26 @@ struct MatchingView: View {
     // Stores an image to show
     @State var currentItem: ItemToMatch = testItem
     
+    // Is a game on?
+    @State var gameOn: Bool = false
+    
     // MARK: Computed properties
     var body: some View {
         VStack {
-            Image(currentItem.image)
-                .resizable()
-                .scaledToFit()
+            
+            if gameOn {
+                Image(currentItem.image)
+                    .resizable()
+                    .scaledToFit()
+            } else {
+                Button(action: {
+                    gameOn.toggle()
+                }, label: {
+                    Text("Let's play!")
+                        .font(.title)
+                })
+                .buttonStyle(.bordered)
+            }
         }
         .task {
             // Set list of flavours to the default list from the app bundle
@@ -35,7 +49,7 @@ struct MatchingView: View {
             print("Data loaded from JSON file in app bundle had this data...")
             print("===")
             print(String(data: data, encoding: .utf8)!)
-
+            
             // Convert each JSON object into instances of the structure in the list
             possibleItems = try! JSONDecoder().decode([ItemToMatch].self, from: data)
             
