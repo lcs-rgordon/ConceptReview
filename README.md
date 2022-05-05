@@ -97,25 +97,34 @@ A list is used to display results.
   Possibilities for apps that draw data from an online stream structured in the JSON format are broad.
   
   Browse some of the resources below. What apps can you imagine, built upon the data these endpoints provide? 
-  
+
+  * [AirVisual API](https://api-docs.iqair.com/?version=latest)
+    * Provides air quality data for locations all over the world.
+    * An API key is required to access this endpoint; this can be obtained free of charge.
+  * [Calendarific](https://calendarific.com/api-documentation)
+    * "Calendarific is a developer-friendly ... API giving you access to public, local & bank holidays and observances; and spanning over 230 countries, 3,300+ states and 100+ languages."
+    * An API key is required to access this endpoint; this can be obtained free of charge.
+  * [Image Charts](https://documentation.image-charts.com)
+    * Send a request to this endpoint and it will return a chart or graph in your desired image format.
+    * There is no authentication required to use this endpoint.
+  * [Joke API](https://sv443.net/jokeapi/v2/)
+    * A web service that serves jokes in various formats.
+    * There is no authentication required to use this endpoint.
   * [jService](http://jservice.io/)
     * A set of trivia questions based on prior Jeopardy! clues.
+    * There is no authentication required to use this endpoint.
+  * [Meal Database](https://www.themealdb.com/api.php)
+    * A web service that provides information about food and meals, based on categories and other criteria.
     * There is no authentication required to use this endpoint.
   * [MusixMatch](https://developer.musixmatch.com)
     * A service that provides lyrics for songs.
     * An API key is required to access this endpoint; this can be obtained free of charge.
-  * [The Star Wars API](https://swapi.dev/documentation)
-    * "All the Star Wars data you ever wanted."
+  * [Open Movie Database](http://www.omdbapi.com)
+    * The OMDb API is a web service to obtain movie information. 
     * There is no authentication required to use this endpoint.
   * [Numbers API](http://numbersapi.com/?ref=apilist.fun#42)
     * "Bring your metrics and dates to life."
     * Provides trivia and interesting information about numbers and dates.
-    * There is no authentication required to use this endpoint.
-  * [Image Charts](https://documentation.image-charts.com)
-    * Send a request to this endpoint and it will return a chart or graph in your desired image format.
-    * There is no authentication required to use this endpoint.
-  * [The Open Movie Database](http://www.omdbapi.com)
-    * The OMDb API is a web service to obtain movie information. 
     * There is no authentication required to use this endpoint.
   * [Spoonacular](https://spoonacular.com/food-api/docs)
     * Provides nutrition, recipe, ingredients, and allergens data for food.
@@ -123,22 +132,10 @@ A list is used to display results.
   * [Stock News API](https://stocknewsapi.com/)
     * "Get the latest stock news from the best news sources. Use our API and access clean and relevant stock market news data."
     * An API key is required to access this endpoint; this can be obtained free of charge.
-  * [Calendarific](https://calendarific.com/api-documentation)
-    * "Calendarific is a developer-friendly ... API giving you access to public, local & bank holidays and observances; and spanning over 230 countries, 3,300+ states and 100+ languages."
-    * An API key is required to access this endpoint; this can be obtained free of charge.
-  * [AirVisual API](https://api-docs.iqair.com/?version=latest)
-    * Provides air quality data for locations all over the world.
-    * An API key is required to access this endpoint; this can be obtained free of charge.
-  * [Joke API](https://sv443.net/jokeapi/v2/)
-    * A web service that serves jokes in various formats.
+  * [Star Wars API](https://swapi.dev/documentation)
+    * "All the Star Wars data you ever wanted."
     * There is no authentication required to use this endpoint.
-  * [The Meal Database](https://www.themealdb.com/api.php)
-    * A web service that provides information about food and meals, based on categories and other criteria.
-    * There is no authentication required to use this endpoint.
-
-
     
-
 
 ## Input from File in App Bundle 
 
