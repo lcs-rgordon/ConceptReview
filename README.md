@@ -75,6 +75,22 @@ When a game is completed, the [result is added to a list](x-source-tag://adding_
   
   When a tile is tapped and filled in with a player's symbol, make the tile rotate twice, quickly.
 
+## Input from an Online Data Stream
+
+### Song Browser
+
+![image alt text](song-browser.png)
+
+*Song Browser* draws all it's data from the endpoint provided by the [iTunes Search API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
+
+A JSON-formatted response provides a list of songs that match the search term.
+
+Selection is used to determine whether a song is a favourite or not.
+
+Abstraction is used to build the song detail view; each part of that user interface is provided by a smaller "helper" view.
+
+A list is used to display results.
+
 ## Input from File in App Bundle 
 
 ### Matching Game
