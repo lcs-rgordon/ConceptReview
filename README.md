@@ -154,6 +154,30 @@ A list is used to display results.
     * Given a latitude, longitude, city, or other search criteria, obtain a current weather forecast.
     * There is no authentication required to use this endpoint.
 
+### Announcements
+
+![A list of school announcements is shown; users can navigate to a detail view to see more information. It is also possible to save announcements that a user wants to remember for future reference.](SupportingImages/announcements.png)
+
+*Announcements* takes all of it's input data from a remote endpoint – the difference is that this endpoint draws it's data from [a spreadsheet](https://docs.google.com/spreadsheets/d/1yy7ZEUfnW5L2jr_IFKh0Nj1NUrTU7PlsCeFU3z-2_Hc/edit#gid=0) that you, as the programmer, control!
+
+This is made possible by the [Sheety service](https://sheety.co), which converts Google Sheets data into JSON formatted data.
+
+As a result, the input to your app is now *flexible* and easily updated.
+
+You can distribute the app, and as data changes in the spreadsheet, what is displayed to users within your app will update to reflect those changes. 
+
+An example of where sequence matters in this app is when [an announcement that is being saved by the user is reported up to the spreadsheet](x-source-tag://a_sequence). First the announcement being saved must be encoded in JSON format. Only *after* that occurs can the data be sent to the spreadsheet via the remote endpoint.
+
+One example of a selection statement being used is to [determine whether an announcement is currently saved or not](x-source-tag://a_selection_statement).
+
+An example of when abstraction is used is the "star" button at the bottom of the announcement detail page. This button, an instance of `SaveAnnouncementButtonView`, is used to save (or remove) an announcement from the list of saved announcements. There is a significant amount of logic within that view. If that logic was kept directly inside the `AnnouncementDetailView` structure, that structure's code would become very long and hard to read. This is an example of how applying abstraction helps to manage complexity. The code in `AnnouncementDetailView` is easier to read and debug because we have abstracted out a lot of functionality into `SaveAnnouncementButtonView`.
+
+Lists play a large role in how *Announcements* works.
+
+A [list is used to receive data](x-source-tag://a_announcements_list) from the remote spreadsheet. This is the primary list the user sees when browsing announcements. Since we do not know how many announcements will be received into our app at any given time, a list must be used. It would not be possible to write this app by trying to use individual variables to present each announcement.
+
+Another example of lists being used is to [track saved announcements that the user wants to remember](x-source-tag://a_saved_announcements). This list is initialized at the app level using the `@State` property wrapper, because that is the source of truth for the list – where it is first created. The list is then shared as a reference to the other views that need to use it. In those views, the list is a derived value, so we mark it with the `@Binding` property wrapper. 
+
 ## Input from File in App Bundle 
 
 ### Matching Game
