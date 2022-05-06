@@ -6,7 +6,7 @@ This project contains example apps that take their primary input from a variety 
 
 ### Multiplication Maestro
 
-![image alt text](multiplication-maestro.png)
+![6 times 5 presented in large type, an empty box waiting for an answer, a button for the user to submit the answer, and a list of prior multiplication questions. The list of prior questions shows the multiplicand and multiplier, the user's answer, and icons indicating whether each answer was correct or incorrect. When an answer is incorrect, the correct answer is shown in brackets.](SupportingImages/multiplication-maestro.png)
 
 *Multiplication Maestro* generates data entirely from user actions when [answers to questions are provided in a text field](x-source-tag://mm_user_action).
 
@@ -32,7 +32,7 @@ As questions are answered, results are added to the list, with the most recent q
   
   Make the necessary code changes to correct for this.
 
-![image alt text](multiplication-maestro-something-missing.png)
+![The list of prior questions completed shows that when a user checks an answer after not having supplied any input, there is a blank showing for their response. This makes it appear as though something is potentially broken in the app's logic. How could the app be modified so that it is clear the user provided no input or response to a question?](SupportingImages/multiplication-maestro-something-missing.png)
 
 * Callout(User Experience Refinement):
   You received a review for *Multiplication Maestro* on the App Store that mentioned the interface feels crowded on devices with smaller screen sizes. 🧐 
@@ -43,11 +43,11 @@ As questions are answered, results are added to the list, with the most recent q
   
   What *property wrapper* will you need to use on the two views that receive the list from the app level file, so that any changes to the list on those tabs are sent up to the source of truth?
 
-![image alt text](multiplication-maestro-tabs.png)
+![Images showing the primary quizzing interface on one tab, named 'Practice', and the list of prior questions completed on a second tab, named 'History'.](SupportingImages/multiplication-maestro-tabs.png)
 
 ### Noughts and Crosses
 
-![image alt text](noughts-and-crosses.png)
+![A 'Noughts and Crosses' game board, three columns and three rows, shown at top. The 'crosses' player has won. A button is present allowing a new game to be started. A list of prior game results is shown below the primary game playing interface. For each game in the list, an image shows where noughts and crosses were placed in each game, along with who won that game, and in how many moves.](SupportingImages/noughts-and-crosses.png)
 
 *Noughts and Crosses*, also known as "x's and o's", generates data entirely from [user actions that trigger events](x-source-tag://user_action).
 
@@ -79,7 +79,7 @@ When a game is completed, the [result is added to a list](x-source-tag://adding_
 
 ### Song Browser
 
-![image alt text](song-browser.png)
+![One image depicts an interface where the user can search for songs by providing the artist name, song name, or other information. Another image depicts the list of search results for the search text 'Shake It Off'. A final image showing an interface allowing the user to play a preview clip of 'Shake It Off' by Taylor Swift, with links to view the artist's page in Apple Music, or the album page in Apple Music. Another button  allows the user to add this song to a list of favourites.](SupportingImages/song-browser.png)
 
 *Song Browser* draws all it's data from the endpoint provided by the [iTunes Search API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
 
@@ -158,7 +158,7 @@ A list is used to display results.
 
 ### Matching Game
 
-![image alt text](matching-game.png)
+![Four images are shown in a grid. Cherries in the top left corner, a cooked turkey in the top right, a carrot in the bottom left, and a strawberry in the bottom right. The user has been prompted, with text, to tap the image the strawberry. A button labelled 'Next' allows the user to advance to a new question. A large green checkmark in a green circle is present to indicate that the user correctly tapped on the image of the strawberry.](SupportingImages/matching-game.png)
 
 *Matching Game* could not exist without input from files in the app bundle. A [JSON file provides items that are to be matched](x-source-tag://mg_input_from_file), and images are stored in the **Assets** folder.
 
